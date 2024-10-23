@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Student.Controllers.Student>
+@{ ViewBag.Title = "Student List"; }
+
+<h2>Student List</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Grade</th>
+            <th>Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+<tr>
+    <td>@student.Name</td>
+    <td>@student.Email</td>
+    <td>@student.DateOfBirth.ToShortDateString()</td>
+    <td>@student.Grade</td>
+    <td>@student.classes</td>
+</tr>}
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Add New Student", "Create", "Student", new { @class = "btn btn-primary" })
+</div>
